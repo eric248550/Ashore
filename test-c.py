@@ -2,7 +2,7 @@ import pyaudio, sys, socket
 import keyboard
 
 port = 5001
-ip = "127.0.0.1"
+ip = "192.168.0.103"
 
 chunk = 512
 FORMAT = pyaudio.paInt16
