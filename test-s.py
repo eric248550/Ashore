@@ -10,7 +10,7 @@ p = pyaudio.PyAudio()
 stream = p.open(format = FORMAT, channels = CHANNELS, rate = RATE, input = True, output = True, frames_per_buffer = chunk)
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # create the socket
-server_socket.bind(('192.168.0.103', port)) # listen on port 5001
+server_socket.bind(('', port)) # listen on port 5001
 server_socket.listen(5) # queue max 5 connections
 client_socket, address = server_socket.accept()
 
