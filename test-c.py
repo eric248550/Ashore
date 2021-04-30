@@ -17,13 +17,14 @@ client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect((ip, port))
 
 while True:
-    #Recieve data from the server:
-    data = client_socket.recv(1024)
-    stream.write(data,chunk)
+    try:
+        #Recieve data from the server:
+        data = client_socket.recv(1024)
+        stream.write(data,chunk)
     
-    #client_socket.sendall(stream.read(chunk))
-
-    print(data)
+        print(data)
+    except Exception as e:
+        ptint(e)
     '''
     if keyboard.is_pressed('q'):
         print('You Pressed A Key!')

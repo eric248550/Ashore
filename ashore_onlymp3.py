@@ -38,7 +38,7 @@ def load_new_file():
     print(current_file)
     global is_play
     m.stop()
-    m.unload()
+    #m.unload()
     m.load(file[current_file])
     m.play()
     is_play = 1
@@ -46,10 +46,11 @@ def load_new_file():
 
 START = bytes.fromhex('F2')
 END = bytes.fromhex('2F')
-CENTER = bytes.fromhex('840f2f')
-PREV = bytes.fromhex('813f2f')
-FORW = bytes.fromhex('823f2f')
-VOL = [bytes.fromhex('80012f'), bytes.fromhex('80032f'), bytes.fromhex('80072f'),bytes.fromhex('800f2f'), bytes.fromhex('801f2f'), bytes.fromhex('803f2f')]
+CENTER = b'\x84'
+PREV = b'\x81'
+FORW = b'\x82'
+VOL = [b'\x01', b'\x03',b'\x07',b'\x0f',b'\x1f',b'\x2f']
+#VOL2 = [bytes.fromhex('80012f'), bytes.fromhex('80032f'), bytes.fromhex('80072f'),bytes.fromhex('800f2f'), bytes.fromhex('801f2f'), bytes.fromhex('803f2f')]
 '''
 VOL1 = bytes.fromhex('80012f')
 VOL2 = bytes.fromhex('80032f')
@@ -79,9 +80,10 @@ while True:
     if ser.inWaiting() > 3:
         first = ser.read()
         if first == START:
-            temp = ser.read_until(END)
+            temp = ser.read()
             c_prev = c
             c = temp
+            c2 = ser.read()
         else:
             c = ''
     if c == CENTER and c_prev != CENTER:
@@ -90,5 +92,8 @@ while True:
         press_prev()
     elif c == FORW and c_prev != FORW:
         press_forw()
-    elif c != '':
+    elif c != '' and c2 != '':
         press_volume()
+
+
+        
