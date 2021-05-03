@@ -1,5 +1,6 @@
 import pyaudio, sys, socket
 import wave
+import os
 
 port = 5001
 ip = "192.168.43.5"
@@ -19,6 +20,7 @@ client_socket.connect((ip, port))
 audio_buffer = []
 cnt=0
 file_order=0
+
 def save_wave_file(filename,data):
     wf = wave.open(filename,'wb')
     wf.setnchannels(CHANNELS)
@@ -42,8 +44,10 @@ while True:
             save_wave_file(file_name, audio_buffer)
             audio_buffer = []
             cnt=0
+            os.system('aplay file_name')
             file_order+=1
-        #print(data)
+
+    #print(data)
     #except Exception as e:
      #   print(e)
 	
