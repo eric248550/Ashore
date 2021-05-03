@@ -26,9 +26,9 @@ def press_forw():
 
 def press_volume():
     global vol
-    for i in range(len(VOL)):
+    for i in range(5):
         if c2 == VOL[i]:
-            vol = i+1
+            vol = i
             m.set_volume(vol/6)
             break
     #print('vol')
@@ -49,14 +49,14 @@ END = bytes.fromhex('2F')
 CENTER = b'\x84'
 PREV = b'\x81'
 FORW = b'\x82'
-VOL = [b'\x01', b'\x03',b'\x07',b'\x0f',b'\x1f',b'\x2f']
+VOL = [b'\x01', b'\x03',b'\x07',b'\x0f',b'\x1f',b'\x1f']
 #VOL2 = [bytes.fromhex('80012f'), bytes.fromhex('80032f'), bytes.fromhex('80072f'),bytes.fromhex('800f2f'), bytes.fromhex('801f2f'), bytes.fromhex('803f2f')]
 c = ''
 c_prev = ''
 vol = 6
 is_play = 1
 
-file = ["./music/1.wav", "./music/2.wav"]
+file = ["/home/pi/Desktop/audio-stream/music/1.wav","/home/pi/Desktop/audio-stream/music/2.wav"]
 num_of_file = len(file)
 current_file = 0
 pygame.mixer.init()

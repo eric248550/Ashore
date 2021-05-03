@@ -1,6 +1,6 @@
 import pyaudio, sys, socket
 import wave
-import os
+import pygame
 
 port = 5001
 ip = "192.168.43.5"
@@ -8,7 +8,7 @@ ip = "192.168.43.5"
 chunk = 512
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
-RATE = 44100
+RATE = 48000
 
 p = pyaudio.PyAudio()
 stream = p.open(format = FORMAT, channels = CHANNELS, rate = RATE, output=True, output_device_index=0, frames_per_buffer = chunk)
@@ -20,6 +20,8 @@ client_socket.connect((ip, port))
 audio_buffer = []
 cnt=0
 file_order=0
+pygame.mixer.init()
+
 
 def save_wave_file(filename,data):
     wf = wave.open(filename,'wb')
@@ -44,7 +46,11 @@ while True:
             save_wave_file(file_name, audio_buffer)
             audio_buffer = []
             cnt=0
-            os.system('aplay file_name')
+            
+            pygame.mixer.music.load(file_name)
+            m = pygame.mixer.music
+            m.play()
+
             file_order+=1
 
     #print(data)
