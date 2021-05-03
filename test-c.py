@@ -39,7 +39,7 @@ while True:
         
         audio_buffer.append(data)
         cnt+=1
-        print(cnt)
+        #print(cnt)
         
         if cnt >= 500:
             file_name ='stream_music/' 'stream' + str(file_order) + '.wav'
@@ -47,6 +47,7 @@ while True:
             audio_buffer = []
             cnt=0
             
+            print("Now playing: "+file_name)
             pygame.mixer.music.load(file_name)
             m = pygame.mixer.music
             m.play()
