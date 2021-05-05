@@ -3,7 +3,7 @@ import wave
 import pygame
 
 port = 5001
-ip = "192.168.43.5"
+ip = "192.168.43.143"
 
 chunk = 512
 FORMAT = pyaudio.paInt16
@@ -46,13 +46,16 @@ while True:
             save_wave_file(file_name, audio_buffer)
             audio_buffer = []
             cnt=0
-            
+             
             print("Now playing: "+file_name)
             pygame.mixer.music.load(file_name)
             m = pygame.mixer.music
+            m.set_volume(1)
             m.play()
-
-            file_order+=1
+            if file_order>=10:
+                file_order=0
+            else:
+                file_order+=1
 
     #print(data)
     #except Exception as e:
