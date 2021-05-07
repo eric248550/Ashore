@@ -15,7 +15,7 @@ def press_center():
 def press_prev():
     print('prev')
     global current_file
-    current_file = (current_file + 2) % num_of_file
+    current_file = (current_file + num_of_file - 1) % num_of_file
     load_new_file()
 
 def press_forw():
@@ -56,7 +56,7 @@ c_prev = ''
 vol = 6
 is_play = 1
 
-file = ["/home/pi/Desktop/audio-stream/music/1.wav","/home/pi/Desktop/audio-stream/music/2.wav"]
+file = ["/home/pi/Desktop/audio-stream/music/1.wav","/home/pi/Desktop/audio-stream/music/2.wav"] # add file names here!
 num_of_file = len(file)
 current_file = 0
 pygame.mixer.init()
