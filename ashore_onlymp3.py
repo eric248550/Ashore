@@ -36,6 +36,7 @@ def press_volume():
 
 def load_new_file():
     global is_play
+    print("file:")
     print(current_file)
     m.stop()
     #m.unload()
@@ -56,7 +57,7 @@ c_prev = ''
 vol = 6
 is_play = 1
 
-file = ["/home/pi/Desktop/audio-stream/music/1.wav","/home/pi/Desktop/audio-stream/music/2.wav"] # add file names here!
+file = ["/home/pi/Desktop/audio-stream/music/1.wav","/home/pi/Desktop/audio-stream/music/2.wav","/home/pi/Desktop/audio-stream/music/music.mp3"] # add file names here!
 num_of_file = len(file)
 current_file = 0
 pygame.mixer.init()
