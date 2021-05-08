@@ -5,7 +5,7 @@ import pyaudio, sys, socket
 import wave
 
 port = 5001
-ip = "192.168.43.144"
+ip = "192.168.43.33"
 
 chunk = 512
 FORMAT = pyaudio.paInt16
@@ -68,7 +68,7 @@ while True:
     audio_buffer.append(data)
     cnt+=1
     #print(cnt)
-    if cnt >= 500:
+    if cnt >= 100:
         file_name ='stream_music/' 'stream' + str(file_order) + '.wav'
         save_wave_file(file_name, audio_buffer)
         audio_buffer = []
