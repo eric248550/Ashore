@@ -13,5 +13,7 @@ Code written in Python, with server based live-streaming capabilities via Wi-Fi
 Best Project Award, NTUST School of Design, 2021.\
 Concept Design Award Second Round Entree, Red Dot Committee, 2021.
   
+## Demo
+https://user-images.githubusercontent.com/64970325/129433389-eb9ada4a-d384-4481-96f0-f92ff98bbd46.mp4
 
 ##### © 2021 Ashore Design Team, NTUST & NTU
