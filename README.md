@@ -11,7 +11,7 @@ Code written in Python, with server based live-streaming capabilities via Wi-Fi
 
 ## Accolades and Awards
 Best Project Award, NTUST School of Design, 2021.\
-Asian New Generation Design Exhibition Golden Award, ANGDE Award Committee & W, 2021\
+Asian New Generation Design Exhibition Golden Award, ANGDE Award Committee & World Design Organization, 2021\
 Concept Design Award Second Round Entree, Red Dot Committee, 2021.
   
 ## Demo
